@@ -1,0 +1,706 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2013/3/COMP6028TVListings.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.semanticweb.org/ontologies/2013/3/COMP6028TVListings.owl">
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl</Import>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Thomas Smith - taes1g09</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Actor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ActorAndDirector"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Broadcast"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Broadcaster"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Channel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChannelOfTheWorldAroundUs"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CurrentAffairsProgramme"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DefinedClasses"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Director"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Episode"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Format"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Genre"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HDBroadcast"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#HDFormat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PanopticonEpisode"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Presenter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Producer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ProductionCompany"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Programme"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Queries"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#RepeatedEpisode"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#SDFormat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Series"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasActor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBroadcast"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasBroadcaster"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasChannel"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDirector"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEmployer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEpisode"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFormat"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasGenre"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProducer"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSeries"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isActorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isBroadcastOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isBroadcasterOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isChannelOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isDirectorOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isEmployerOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isEpisodeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isProductionCompanyOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isSeriesOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasBroadcastTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDuration"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasOrdinal"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#isHD"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Br_BTV"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#C_CBTV"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#C_Channel9"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Documentary"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#P_TheWorldAroundUs"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#TheWorldAroundUsS1"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Actor"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isActorOf"/>
+            <Class IRI="#Episode"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ActorAndDirector"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isActorOf"/>
+                <Class IRI="#Episode"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isDirectorOf"/>
+                <Class IRI="#Episode"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Broadcast"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasChannel"/>
+                <Class IRI="#Channel"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasFormat"/>
+                <Class IRI="#Format"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isBroadcastOf"/>
+                <Class IRI="#Episode"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasBroadcastTime"/>
+                <Datatype abbreviatedIRI="xsd:dateTime"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Broadcaster"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isBroadcasterOf"/>
+            <Class IRI="#Channel"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Broadcaster"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Channel"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasBroadcaster"/>
+            <Class IRI="#Broadcaster"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Channel"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ChannelOfTheWorldAroundUs"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Channel"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isChannelOf"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Broadcast"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#isBroadcastOf"/>
+                        <ObjectIntersectionOf>
+                            <Class IRI="#Episode"/>
+                            <ObjectUnionOf>
+                                <ObjectSomeValuesFrom>
+                                    <ObjectProperty IRI="#isEpisodeOf"/>
+                                    <ObjectIntersectionOf>
+                                        <Class IRI="#Programme"/>
+                                        <DataHasValue>
+                                            <DataProperty IRI="#hasName"/>
+                                            <Literal datatypeIRI="&rdf;PlainLiteral">The World Around Us</Literal>
+                                        </DataHasValue>
+                                    </ObjectIntersectionOf>
+                                </ObjectSomeValuesFrom>
+                                <ObjectSomeValuesFrom>
+                                    <ObjectProperty IRI="#isEpisodeOf"/>
+                                    <ObjectIntersectionOf>
+                                        <Class IRI="#Series"/>
+                                        <ObjectSomeValuesFrom>
+                                            <ObjectProperty IRI="#isSeriesOf"/>
+                                            <ObjectIntersectionOf>
+                                                <Class IRI="#Programme"/>
+                                                <DataHasValue>
+                                                    <DataProperty IRI="#hasName"/>
+                                                    <Literal datatypeIRI="&rdf;PlainLiteral">The World Around Us</Literal>
+                                                </DataHasValue>
+                                            </ObjectIntersectionOf>
+                                        </ObjectSomeValuesFrom>
+                                    </ObjectIntersectionOf>
+                                </ObjectSomeValuesFrom>
+                            </ObjectUnionOf>
+                        </ObjectIntersectionOf>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#CurrentAffairsProgramme"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Programme"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasGenre"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Genre"/>
+                    <DataHasValue>
+                        <DataProperty IRI="#hasName"/>
+                        <Literal datatypeIRI="&rdf;PlainLiteral">Current Affairs</Literal>
+                    </DataHasValue>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Director"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isDirectorOf"/>
+            <Class IRI="#Episode"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Episode"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasProductionCompany"/>
+                <Class IRI="#ProductionCompany"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isEpisodeOf"/>
+                <Class IRI="#Series"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasOrdinal"/>
+                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Format"/>
+        <ObjectIntersectionOf>
+            <ObjectUnionOf>
+                <Class IRI="#HDFormat"/>
+                <Class IRI="#SDFormat"/>
+            </ObjectUnionOf>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasName"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#isHD"/>
+                <Datatype abbreviatedIRI="xsd:boolean"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HDBroadcast"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Broadcast"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasFormat"/>
+                <Class IRI="#HDFormat"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#HDFormat"/>
+        <DataHasValue>
+            <DataProperty IRI="#isHD"/>
+            <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#PanopticonEpisode"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Broadcast"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#isBroadcastOf"/>
+                <ObjectIntersectionOf>
+                    <Class IRI="#Episode"/>
+                    <ObjectSomeValuesFrom>
+                        <ObjectProperty IRI="#hasProductionCompany"/>
+                        <ObjectIntersectionOf>
+                            <Class IRI="#ProductionCompany"/>
+                            <DataHasValue>
+                                <DataProperty IRI="#hasName"/>
+                                <Literal datatypeIRI="&rdf;PlainLiteral">Panopticon Productions</Literal>
+                            </DataHasValue>
+                        </ObjectIntersectionOf>
+                    </ObjectSomeValuesFrom>
+                </ObjectIntersectionOf>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Programme"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasGenre"/>
+                <Class IRI="#Genre"/>
+            </ObjectSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasSeries"/>
+                <Class IRI="#Series"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasName"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#RepeatedEpisode"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Episode"/>
+            <ObjectMinCardinality cardinality="2">
+                <ObjectProperty IRI="#hasBroadcast"/>
+            </ObjectMinCardinality>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#SDFormat"/>
+        <DataHasValue>
+            <DataProperty IRI="#isHD"/>
+            <Literal datatypeIRI="&xsd;boolean">false</Literal>
+        </DataHasValue>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Actor"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ActorAndDirector"/>
+        <Class IRI="#DefinedClasses"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Broadcast"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Broadcaster"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Channel"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChannelOfTheWorldAroundUs"/>
+        <Class IRI="#Queries"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CurrentAffairsProgramme"/>
+        <Class IRI="#DefinedClasses"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Director"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Episode"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Format"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Genre"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HDBroadcast"/>
+        <Class IRI="#DefinedClasses"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#HDFormat"/>
+        <Class IRI="#Format"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PanopticonEpisode"/>
+        <Class IRI="#DefinedClasses"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasEmployer"/>
+            <Class IRI="#ProductionCompany"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Presenter"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Producer"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ProductionCompany"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Programme"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Queries"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#RepeatedEpisode"/>
+        <Class IRI="#DefinedClasses"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#SDFormat"/>
+        <Class IRI="#Format"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Series"/>
+        <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Series"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasEpisode"/>
+            <Class IRI="#Episode"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Series"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isSeriesOf"/>
+            <Class IRI="#Programme"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Series"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasOrdinal"/>
+            <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Broadcast"/>
+        <Class IRI="#Broadcaster"/>
+        <Class IRI="#Channel"/>
+        <Class IRI="#Episode"/>
+        <Class IRI="#Format"/>
+        <Class IRI="#Genre"/>
+        <Class IRI="#Person"/>
+        <Class IRI="#ProductionCompany"/>
+        <Class IRI="#Programme"/>
+        <Class IRI="#Series"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#Br_BTV"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#C_CBTV"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#C_Channel9"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#Documentary"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#P_TheWorldAroundUs"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Series"/>
+        <NamedIndividual IRI="#TheWorldAroundUsS1"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isChannelOf"/>
+        <NamedIndividual IRI="#C_CBTV"/>
+        <NamedIndividual IRI="#Br_BTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasBroadcaster"/>
+        <NamedIndividual IRI="#C_Channel9"/>
+        <NamedIndividual IRI="#Br_BTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasGenre"/>
+        <NamedIndividual IRI="#P_TheWorldAroundUs"/>
+        <NamedIndividual IRI="#Documentary"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSeries"/>
+        <NamedIndividual IRI="#P_TheWorldAroundUs"/>
+        <NamedIndividual IRI="#TheWorldAroundUsS1"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#P_TheWorldAroundUs"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The World Around Us</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isActorOf"/>
+        <ObjectProperty IRI="#hasActor"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isBroadcastOf"/>
+        <ObjectProperty IRI="#hasBroadcast"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isBroadcasterOf"/>
+        <ObjectProperty IRI="#hasBroadcaster"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasChannel"/>
+        <ObjectProperty IRI="#isChannelOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isDirectorOf"/>
+        <ObjectProperty IRI="#hasDirector"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isEmployerOf"/>
+        <ObjectProperty IRI="#hasEmployer"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasEpisode"/>
+        <ObjectProperty IRI="#isEpisodeOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isProductionCompanyOf"/>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasSeries"/>
+        <ObjectProperty IRI="#isSeriesOf"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasEpisode"/>
+    </FunctionalObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#isDirectorOf"/>
+        <Class IRI="#Director"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasActor"/>
+        <Class IRI="#Actor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDirector"/>
+        <Class IRI="#Director"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasEpisode"/>
+        <Class IRI="#Episode"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProducer"/>
+        <Class IRI="#Producer"/>
+    </ObjectPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasBroadcastTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasDuration"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasOrdinal"/>
+        <Datatype abbreviatedIRI="xsd:positiveInteger"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#isHD"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+
