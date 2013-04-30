@@ -23,6 +23,10 @@
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Import>http://protege.stanford.edu/plugins/owl/dc/protege-dc.owl</Import>
     <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/source"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">http://www.edshare.soton.ac.uk/6730/5/COMP6028_Ontology_Design_2012-2013.pdf</Literal>
+    </Annotation>
+    <Annotation>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">Thomas Smith - taes1g09</Literal>
     </Annotation>
@@ -31,12 +35,8 @@
         <Literal datatypeIRI="&xsd;dateTime">2013-04-25T17:15:00Z</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/source"/>
-        <Literal datatypeIRI="&xsd;string">http://www.edshare.soton.ac.uk/6730/5/COMP6028_Ontology_Design_2012-2013.pdf</Literal>
-    </Annotation>
-    <Annotation>
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
-        <Literal datatypeIRI="&xsd;string">An ontology for a TV listings website; used to represent information about scheduled broadcasts, episodes, series, programmes and channels.</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">An ontology for a TV listings website; used to represent information about scheduled broadcasts, episodes, series, programmes and channels.</Literal>
     </Annotation>
     <Declaration>
         <Class IRI="#Actor"/>
@@ -81,7 +81,7 @@
         <Class IRI="#HDFormat"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#PanopticonEpisode"/>
+        <Class IRI="#PanopticonBroadcast"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Person"/>
@@ -228,15 +228,6 @@
         <NamedIndividual IRI="#C_Channel9"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#Children"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#CurrentAffairs"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Documentary"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#E_BedtimeStoryE1"/>
     </Declaration>
     <Declaration>
@@ -252,6 +243,15 @@
         <NamedIndividual IRI="#E_TheWorldAroundUsS1E1"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#G_Children"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#G_CurrentAffairs"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#G_Documentary"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#P_BedtimeStory"/>
     </Declaration>
     <Declaration>
@@ -265,6 +265,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#PcBr_BTV"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pc_PanopticonProductions"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
@@ -417,7 +420,7 @@
                     <Class IRI="#Genre"/>
                     <DataHasValue>
                         <DataProperty IRI="#hasName"/>
-                        <Literal datatypeIRI="&rdf;PlainLiteral">Current Affairs</Literal>
+                        <Literal datatypeIRI="&xsd;string">Current Affairs</Literal>
                     </DataHasValue>
                 </ObjectIntersectionOf>
             </ObjectSomeValuesFrom>
@@ -488,7 +491,7 @@
         </DataHasValue>
     </EquivalentClasses>
     <EquivalentClasses>
-        <Class IRI="#PanopticonEpisode"/>
+        <Class IRI="#PanopticonBroadcast"/>
         <ObjectIntersectionOf>
             <Class IRI="#Broadcast"/>
             <ObjectSomeValuesFrom>
@@ -501,7 +504,7 @@
                             <Class IRI="#ProductionCompany"/>
                             <DataHasValue>
                                 <DataProperty IRI="#hasName"/>
-                                <Literal datatypeIRI="&rdf;PlainLiteral">Panopticon Productions</Literal>
+                                <Literal datatypeIRI="&xsd;string">Panopticon Productions</Literal>
                             </DataHasValue>
                         </ObjectIntersectionOf>
                     </ObjectSomeValuesFrom>
@@ -521,6 +524,20 @@
                 <Datatype abbreviatedIRI="xsd:string"/>
             </DataSomeValuesFrom>
         </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Presenter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isPresenterOf"/>
+            <Class IRI="#Episode"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Producer"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isProducerOf"/>
+            <Class IRI="#Episode"/>
+        </ObjectSomeValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
         <Class IRI="#ProductionCompany"/>
@@ -623,12 +640,26 @@
         <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Episode"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Format"/>
         <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Genre"/>
         <Class abbreviatedIRI=":Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Genre"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#hasName"/>
+            <Datatype abbreviatedIRI="xsd:string"/>
+        </DataSomeValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#HDBroadcast"/>
@@ -639,7 +670,7 @@
         <Class IRI="#Format"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#PanopticonEpisode"/>
+        <Class IRI="#PanopticonBroadcast"/>
         <Class IRI="#DefinedClasses"/>
     </SubClassOf>
     <SubClassOf>
@@ -733,18 +764,6 @@
         <NamedIndividual IRI="#C_Channel9"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#Genre"/>
-        <NamedIndividual IRI="#Children"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Genre"/>
-        <NamedIndividual IRI="#CurrentAffairs"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class IRI="#Genre"/>
-        <NamedIndividual IRI="#Documentary"/>
-    </ClassAssertion>
-    <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#E_BedtimeStoryE1"/>
     </ClassAssertion>
@@ -765,6 +784,18 @@
         <NamedIndividual IRI="#E_TheWorldAroundUsS1E1"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#G_Children"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#G_CurrentAffairs"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Genre"/>
+        <NamedIndividual IRI="#G_Documentary"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#P_BedtimeStory"/>
     </ClassAssertion>
@@ -783,6 +814,10 @@
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#PcBr_BTV"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#Pc_PanopticonProductions"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
@@ -905,6 +940,31 @@
         <NamedIndividual IRI="#PcBr_BTV"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+        <NamedIndividual IRI="#E_BedtimeStoryE1"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS1E1"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS2E1"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+        <NamedIndividual IRI="#E_TheNewsE1"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+        <NamedIndividual IRI="#E_TheWorldAroundUsS1E1"/>
+        <NamedIndividual IRI="#Pc_PanopticonProductions"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEpisode"/>
         <NamedIndividual IRI="#P_BedtimeStory"/>
         <NamedIndividual IRI="#E_BedtimeStoryE1"/>
@@ -912,12 +972,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasGenre"/>
         <NamedIndividual IRI="#P_BedtimeStory"/>
-        <NamedIndividual IRI="#Children"/>
+        <NamedIndividual IRI="#G_Children"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasGenre"/>
         <NamedIndividual IRI="#P_CaptainZapSpaceAce"/>
-        <NamedIndividual IRI="#Children"/>
+        <NamedIndividual IRI="#G_Children"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasSeries"/>
@@ -937,17 +997,22 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasGenre"/>
         <NamedIndividual IRI="#P_TheNews"/>
-        <NamedIndividual IRI="#CurrentAffairs"/>
+        <NamedIndividual IRI="#G_CurrentAffairs"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasGenre"/>
         <NamedIndividual IRI="#P_TheWorldAroundUs"/>
-        <NamedIndividual IRI="#Documentary"/>
+        <NamedIndividual IRI="#G_Documentary"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasSeries"/>
         <NamedIndividual IRI="#P_TheWorldAroundUs"/>
         <NamedIndividual IRI="#S_TheWorldAroundUsS1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isEmployerOf"/>
+        <NamedIndividual IRI="#Pc_PanopticonProductions"/>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEmployer"/>
@@ -1071,6 +1136,21 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#G_Children"/>
+        <Literal datatypeIRI="&xsd;string">Children</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#G_CurrentAffairs"/>
+        <Literal datatypeIRI="&xsd;string">Current Affairs</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#G_Documentary"/>
+        <Literal datatypeIRI="&xsd;string">Documentary</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#P_BedtimeStory"/>
         <Literal datatypeIRI="&xsd;string">Bedtime Story</Literal>
     </DataPropertyAssertion>
@@ -1093,6 +1173,11 @@
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#PcBr_BTV"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">BTV</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#Pc_PanopticonProductions"/>
+        <Literal datatypeIRI="&xsd;string">Panopticon Productions</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
@@ -1414,24 +1499,264 @@
         <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ActorAndDirector</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A person who both acts and directs.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="#conceptualAssumptions"/>
         <IRI>#Broadcast</IRI>
-        <Literal datatypeIRI="&xsd;string">An individual broadcast of a specific episode, on a specific channel, at a specific time, using the specified format.</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">An individual Broadcast of a specific Episode, on a specific Channel, with a specific time and duration, using the specified Format.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#definitionalAssumptions"/>
         <IRI>#Broadcast</IRI>
-        <Literal datatypeIRI="&xsd;string">A single transmission of an episode.</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A single transmission of an episode.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#examples"/>
         <IRI>#Broadcast</IRI>
-        <Literal datatypeIRI="&xsd;string">The 5pm transmission of &#39;Captain Zap: Space Ace&#39; on CBTV in 480p.</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">The 5pm transmission of &#39;Captain Zap: Space Ace&#39; on CBTV in 480p.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#terminologicalAssumptions"/>
         <IRI>#Broadcast</IRI>
-        <Literal datatypeIRI="&xsd;string">Broadcast</Literal>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Broadcast</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Broadcaster</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A Broadcaster is a named entity that owns one or more Channels.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#Broadcaster</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A broadcaster is the entity (company) that manages the broadcast of one or more media channels.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Broadcaster</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">BTV owns Channel 9 and CBTV.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Broadcaster</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Broadcaster</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Broadcaster</IRI>
+        <Literal datatypeIRI="&xsd;string">Deliberately not disjoint with ProductionCompany.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Channel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A Channel is owned by a Broadcaster and has one or more Broadcasts of Episodes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#Channel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A single stream of media on which a single item at a time may be broadcast.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Channel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Channel 9 is owned by BTV, and shows The News and The World Around Us.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Channel</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">Channel</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CurrentAffairsProgramme</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A current affairs program.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Episode</IRI>
+        <Literal datatypeIRI="&xsd;string">An Episode of a Series or Programme, with specified name, ProductionCompany and ordinal.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#Episode</IRI>
+        <Literal datatypeIRI="&xsd;string">A separate instalment of a serialised programme.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Episode</IRI>
+        <Literal datatypeIRI="&xsd;string">The first episode of the first season of The World Around Us is made by Panopticon Productions and has been broadcast twice, two days apart.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Episode</IRI>
+        <Literal datatypeIRI="&xsd;string">Episode</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Format</IRI>
+        <Literal datatypeIRI="&xsd;string">A value partition representing the two classes of format, HD and SD.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#Format</IRI>
+        <Literal datatypeIRI="&xsd;string">The format is the tecnical specifications of a particular broadcast.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Format</IRI>
+        <Literal datatypeIRI="&xsd;string">Some episodes are broadcast in 480p, a standard definition format, while others are broadcast in 1080p, a high definition format.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Format</IRI>
+        <Literal datatypeIRI="&xsd;string">Format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Genre</IRI>
+        <Literal datatypeIRI="&xsd;string">Each Episode has at least one Genre.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#Genre</IRI>
+        <Literal datatypeIRI="&xsd;string">The style or category of an episode.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Genre</IRI>
+        <Literal datatypeIRI="&xsd;string">Children, Current Affairs, Documentary</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Genre</IRI>
+        <Literal datatypeIRI="&xsd;string">Genre, Category</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#HDBroadcast</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A high-definition broadcast.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#HDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">The class of Formats considered high-definition, i.e. &#39;isHD value true&#39;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#HDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">All high-definition formats.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#HDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">1080p, 1080i</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#HDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">High-definition formats, HD</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#PanopticonBroadcast</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">A broadcast of an episode made by Panopticon Productions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Person</IRI>
+        <Literal datatypeIRI="&xsd;string">A Person represents a human agent that may be an Actor, Director, Presentor or Producer.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#Person</IRI>
+        <Literal datatypeIRI="&xsd;string">A human being regarded as an individual - soecifically one with employment in the TV industry.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Person</IRI>
+        <Literal datatypeIRI="&xsd;string">Dirk Cleftjaw</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Person</IRI>
+        <Literal datatypeIRI="&xsd;string">Person, Man, Woman</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#ProductionCompany</IRI>
+        <Literal datatypeIRI="&xsd;string">A ProductionCompany produces Episodes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#ProductionCompany</IRI>
+        <Literal datatypeIRI="&xsd;string">The entity (company) that produces episodes of series or programmes.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#ProductionCompany</IRI>
+        <Literal datatypeIRI="&xsd;string">Panopticon Productions, BTV</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#ProductionCompany</IRI>
+        <Literal datatypeIRI="&xsd;string">Production Company, Producer (company)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#ProductionCompany</IRI>
+        <Literal datatypeIRI="&xsd;string">Deliberately not disjoint with Broadcaster.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Programme</IRI>
+        <Literal datatypeIRI="&xsd;string">A Programme has one or more Series or Episodes, and one or more Genres.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Programme</IRI>
+        <Literal datatypeIRI="&xsd;string">The World Around Us, The News</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Programme</IRI>
+        <Literal datatypeIRI="&xsd;string">Programme</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#RepeatedEpisode</IRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">An episode that has been repeated (i.e. broadcast more than once)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#SDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">All standard-definition formats.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#SDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">480p</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#SDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">The class of Formats considered standard definition, i.e. &#39;isHD value false&#39;.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#SDFormat</IRI>
+        <Literal datatypeIRI="&xsd;string">Standard-definition formats, SD</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Series</IRI>
+        <Literal datatypeIRI="&xsd;string">A Series has a Programme it belongs to, one or more Episodes, and an ordinal.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Series</IRI>
+        <Literal datatypeIRI="&xsd;string">Series</Literal>
     </AnnotationAssertion>
     <SubAnnotationPropertyOf>
         <AnnotationProperty IRI="#conceptualAssumptions"/>
