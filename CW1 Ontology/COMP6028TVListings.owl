@@ -26,6 +26,18 @@
         <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/creator"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">Thomas Smith - taes1g09</Literal>
     </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/date"/>
+        <Literal datatypeIRI="&xsd;dateTime">2013-04-25T17:15:00Z</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/source"/>
+        <Literal datatypeIRI="&xsd;string">http://www.edshare.soton.ac.uk/6730/5/COMP6028_Ontology_Design_2012-2013.pdf</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <Literal datatypeIRI="&xsd;string">An ontology for a TV listings website; used to represent information about scheduled broadcasts, episodes, series, programmes and channels.</Literal>
+    </Annotation>
     <Declaration>
         <Class IRI="#Actor"/>
     </Declaration>
@@ -266,6 +278,18 @@
     <Declaration>
         <NamedIndividual IRI="#S_TheWorldAroundUsS1"/>
     </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#examples"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+    </Declaration>
     <EquivalentClasses>
         <Class IRI="#Actor"/>
         <ObjectSomeValuesFrom>
@@ -304,6 +328,10 @@
             <DataSomeValuesFrom>
                 <DataProperty IRI="#hasBroadcastTime"/>
                 <Datatype abbreviatedIRI="xsd:dateTime"/>
+            </DataSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasDuration"/>
+                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
             </DataSomeValuesFrom>
         </ObjectIntersectionOf>
     </EquivalentClasses>
@@ -415,10 +443,10 @@
                     <Class IRI="#Series"/>
                 </ObjectSomeValuesFrom>
             </ObjectUnionOf>
-            <DataSomeValuesFrom>
-                <DataProperty IRI="#hasDuration"/>
-                <Datatype abbreviatedIRI="xsd:positiveInteger"/>
-            </DataSomeValuesFrom>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasProductionCompany"/>
+                <Class IRI="#ProductionCompany"/>
+            </ObjectSomeValuesFrom>
             <DataSomeValuesFrom>
                 <DataProperty IRI="#hasOrdinal"/>
                 <Datatype abbreviatedIRI="xsd:positiveInteger"/>
@@ -498,7 +526,7 @@
         <Class IRI="#ProductionCompany"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#isProductionCompanyOf"/>
-            <Class IRI="#Programme"/>
+            <Class IRI="#Episode"/>
         </ObjectSomeValuesFrom>
     </EquivalentClasses>
     <EquivalentClasses>
@@ -517,10 +545,6 @@
             <ObjectSomeValuesFrom>
                 <ObjectProperty IRI="#hasGenre"/>
                 <Class IRI="#Genre"/>
-            </ObjectSomeValuesFrom>
-            <ObjectSomeValuesFrom>
-                <ObjectProperty IRI="#hasProductionCompany"/>
-                <Class IRI="#ProductionCompany"/>
             </ObjectSomeValuesFrom>
             <DataSomeValuesFrom>
                 <DataProperty IRI="#hasName"/>
@@ -637,13 +661,6 @@
     <SubClassOf>
         <Class IRI="#Programme"/>
         <Class abbreviatedIRI=":Thing"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#Programme"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#hasSeries"/>
-            <Class IRI="#Series"/>
-        </ObjectAllValuesFrom>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Queries"/>
@@ -1126,12 +1143,12 @@
         <ObjectProperty IRI="#isEpisodeOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasPresenter"/>
         <ObjectProperty IRI="#isPresenterOf"/>
+        <ObjectProperty IRI="#hasPresenter"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
-        <ObjectProperty IRI="#hasProducer"/>
         <ObjectProperty IRI="#isProducerOf"/>
+        <ObjectProperty IRI="#hasProducer"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
         <ObjectProperty IRI="#isProductionCompanyOf"/>
@@ -1396,6 +1413,42 @@
         <DataProperty IRI="#isHD"/>
         <Datatype abbreviatedIRI="xsd:boolean"/>
     </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <IRI>#Broadcast</IRI>
+        <Literal datatypeIRI="&xsd;string">An individual broadcast of a specific episode, on a specific channel, at a specific time, using the specified format.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <IRI>#Broadcast</IRI>
+        <Literal datatypeIRI="&xsd;string">A single transmission of an episode.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#examples"/>
+        <IRI>#Broadcast</IRI>
+        <Literal datatypeIRI="&xsd;string">The 5pm transmission of &#39;Captain Zap: Space Ace&#39; on CBTV in 480p.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <IRI>#Broadcast</IRI>
+        <Literal datatypeIRI="&xsd;string">Broadcast</Literal>
+    </AnnotationAssertion>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="#conceptualAssumptions"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+    </SubAnnotationPropertyOf>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="#definitionalAssumptions"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+    </SubAnnotationPropertyOf>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="#examples"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+    </SubAnnotationPropertyOf>
+    <SubAnnotationPropertyOf>
+        <AnnotationProperty IRI="#terminologicalAssumptions"/>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+    </SubAnnotationPropertyOf>
 </Ontology>
 
 
