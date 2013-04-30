@@ -126,6 +126,9 @@
         <ObjectProperty IRI="#hasGenre"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasPresenter"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasProducer"/>
     </Declaration>
     <Declaration>
@@ -154,6 +157,12 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isEpisodeOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPresenterOf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isProducerOf"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#isProductionCompanyOf"/>
@@ -186,6 +195,12 @@
         <NamedIndividual IRI="#B_BedtimeStoryE1B1"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS1E1B1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS2E1B1"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#B_TheNewsE1B1"/>
     </Declaration>
     <Declaration>
@@ -193,9 +208,6 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#B_TheWorldAroundUsS1E1B2"/>
-    </Declaration>
-    <Declaration>
-        <NamedIndividual IRI="#Br_BTV"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#C_CBTV"/>
@@ -216,6 +228,12 @@
         <NamedIndividual IRI="#E_BedtimeStoryE1"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS1E1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS2E1"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#E_TheNewsE1"/>
     </Declaration>
     <Declaration>
@@ -225,10 +243,25 @@
         <NamedIndividual IRI="#P_BedtimeStory"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#P_CaptainZapSpaceAce"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#P_TheNews"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#P_TheWorldAroundUs"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS2"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#S_TheWorldAroundUsS1"/>
@@ -449,6 +482,19 @@
         </ObjectIntersectionOf>
     </EquivalentClasses>
     <EquivalentClasses>
+        <Class IRI="#Person"/>
+        <ObjectIntersectionOf>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty IRI="#hasEmployer"/>
+                <Class IRI="#ProductionCompany"/>
+            </ObjectSomeValuesFrom>
+            <DataSomeValuesFrom>
+                <DataProperty IRI="#hasName"/>
+                <Datatype abbreviatedIRI="xsd:string"/>
+            </DataSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
         <Class IRI="#ProductionCompany"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#isProductionCompanyOf"/>
@@ -577,13 +623,6 @@
         <Class abbreviatedIRI=":Thing"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#Person"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasEmployer"/>
-            <Class IRI="#ProductionCompany"/>
-        </ObjectSomeValuesFrom>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Presenter"/>
         <Class IRI="#Person"/>
     </SubClassOf>
@@ -630,6 +669,16 @@
         <Class IRI="#Format"/>
         <Class IRI="#Genre"/>
         <Class IRI="#Person"/>
+        <Class IRI="#Programme"/>
+        <Class IRI="#Series"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Broadcast"/>
+        <Class IRI="#Channel"/>
+        <Class IRI="#Episode"/>
+        <Class IRI="#Format"/>
+        <Class IRI="#Genre"/>
+        <Class IRI="#Person"/>
         <Class IRI="#ProductionCompany"/>
         <Class IRI="#Programme"/>
         <Class IRI="#Series"/>
@@ -637,6 +686,14 @@
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#B_BedtimeStoryE1B1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS1E1B1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS2E1B1"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
@@ -649,10 +706,6 @@
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#B_TheWorldAroundUsS1E1B2"/>
-    </ClassAssertion>
-    <ClassAssertion>
-        <Class abbreviatedIRI=":Thing"/>
-        <NamedIndividual IRI="#Br_BTV"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
@@ -680,6 +733,14 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS1E1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS2E1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#E_TheNewsE1"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -692,11 +753,31 @@
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#P_CaptainZapSpaceAce"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#P_TheNews"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
         <NamedIndividual IRI="#P_TheWorldAroundUs"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI=":Thing"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS2"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class abbreviatedIRI=":Thing"/>
@@ -723,6 +804,36 @@
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasChannel"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS1E1B1"/>
+        <NamedIndividual IRI="#C_CBTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasFormat"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS1E1B1"/>
+        <NamedIndividual IRI="#480p"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isBroadcastOf"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS1E1B1"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS1E1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasChannel"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS2E1B1"/>
+        <NamedIndividual IRI="#C_CBTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasFormat"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS2E1B1"/>
+        <NamedIndividual IRI="#480p"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isBroadcastOf"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS2E1B1"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS2E1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasChannel"/>
         <NamedIndividual IRI="#B_TheNewsE1B1"/>
         <NamedIndividual IRI="#C_Channel9"/>
     </ObjectPropertyAssertion>
@@ -769,12 +880,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasBroadcaster"/>
         <NamedIndividual IRI="#C_CBTV"/>
-        <NamedIndividual IRI="#Br_BTV"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasBroadcaster"/>
         <NamedIndividual IRI="#C_Channel9"/>
-        <NamedIndividual IRI="#Br_BTV"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEpisode"/>
@@ -785,6 +896,21 @@
         <ObjectProperty IRI="#hasGenre"/>
         <NamedIndividual IRI="#P_BedtimeStory"/>
         <NamedIndividual IRI="#Children"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasGenre"/>
+        <NamedIndividual IRI="#P_CaptainZapSpaceAce"/>
+        <NamedIndividual IRI="#Children"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSeries"/>
+        <NamedIndividual IRI="#P_CaptainZapSpaceAce"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSeries"/>
+        <NamedIndividual IRI="#P_CaptainZapSpaceAce"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEpisode"/>
@@ -805,6 +931,36 @@
         <ObjectProperty IRI="#hasSeries"/>
         <NamedIndividual IRI="#P_TheWorldAroundUs"/>
         <NamedIndividual IRI="#S_TheWorldAroundUsS1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEmployer"/>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isActorOf"/>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
+        <NamedIndividual IRI="#E_BedtimeStoryE1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isDirectorOf"/>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
+        <NamedIndividual IRI="#E_TheNewsE1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPresenterOf"/>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
+        <NamedIndividual IRI="#E_TheWorldAroundUsS1E1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEpisode"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS1"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS1E1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEpisode"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS2"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS2E1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEpisode"/>
@@ -837,6 +993,16 @@
         <Literal datatypeIRI="&xsd;dateTime">2013-04-13T17:30:00Z</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
+        <DataProperty IRI="#hasOrdinal"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS1E1B1"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasOrdinal"/>
+        <NamedIndividual IRI="#B_CaptainZapSpaceAceS2E1B1"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
         <DataProperty IRI="#hasBroadcastTime"/>
         <NamedIndividual IRI="#B_TheNewsE1B1"/>
         <Literal datatypeIRI="&xsd;dateTime">2013-04-15T19:00:00Z</Literal>
@@ -850,11 +1016,6 @@
         <DataProperty IRI="#hasBroadcastTime"/>
         <NamedIndividual IRI="#B_TheWorldAroundUsS1E1B2"/>
         <Literal datatypeIRI="&xsd;dateTime">2013-04-15T19:30:00Z</Literal>
-    </DataPropertyAssertion>
-    <DataPropertyAssertion>
-        <DataProperty IRI="#hasName"/>
-        <NamedIndividual IRI="#Br_BTV"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">BTV</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
@@ -873,6 +1034,16 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasOrdinal"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS1E1"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasOrdinal"/>
+        <NamedIndividual IRI="#E_CaptainZapSpaceAceS2E1"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasOrdinal"/>
         <NamedIndividual IRI="#E_TheNewsE1"/>
         <Literal datatypeIRI="&xsd;positiveInteger">1</Literal>
     </DataPropertyAssertion>
@@ -888,6 +1059,11 @@
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#P_CaptainZapSpaceAce"/>
+        <Literal datatypeIRI="&xsd;string">Captain Zap: Space Ace</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#P_TheNews"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">The News</Literal>
     </DataPropertyAssertion>
@@ -895,6 +1071,26 @@
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#P_TheWorldAroundUs"/>
         <Literal datatypeIRI="&rdf;PlainLiteral">The World Around Us</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#PcBr_BTV"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">BTV</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#Pe_DirkCleftjaw"/>
+        <Literal datatypeIRI="&xsd;string">Dirk Cleftjaw</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasOrdinal"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS1"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasOrdinal"/>
+        <NamedIndividual IRI="#S_CaptainZapSpaceAceS2"/>
+        <Literal datatypeIRI="&xsd;positiveInteger">2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasOrdinal"/>
@@ -930,6 +1126,14 @@
         <ObjectProperty IRI="#isEpisodeOf"/>
     </InverseObjectProperties>
     <InverseObjectProperties>
+        <ObjectProperty IRI="#hasPresenter"/>
+        <ObjectProperty IRI="#isPresenterOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#hasProducer"/>
+        <ObjectProperty IRI="#isProducerOf"/>
+    </InverseObjectProperties>
+    <InverseObjectProperties>
         <ObjectProperty IRI="#isProductionCompanyOf"/>
         <ObjectProperty IRI="#hasProductionCompany"/>
     </InverseObjectProperties>
@@ -1004,6 +1208,9 @@
         <ObjectProperty IRI="#hasGenre"/>
     </AsymmetricObjectProperty>
     <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#hasPresenter"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
         <ObjectProperty IRI="#hasProducer"/>
     </AsymmetricObjectProperty>
     <AsymmetricObjectProperty>
@@ -1032,6 +1239,12 @@
     </AsymmetricObjectProperty>
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#isEpisodeOf"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#isPresenterOf"/>
+    </AsymmetricObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#isProducerOf"/>
     </AsymmetricObjectProperty>
     <AsymmetricObjectProperty>
         <ObjectProperty IRI="#isProductionCompanyOf"/>
@@ -1067,6 +1280,9 @@
         <ObjectProperty IRI="#hasGenre"/>
     </IrreflexiveObjectProperty>
     <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#hasPresenter"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#hasProducer"/>
     </IrreflexiveObjectProperty>
     <IrreflexiveObjectProperty>
@@ -1097,11 +1313,69 @@
         <ObjectProperty IRI="#isEpisodeOf"/>
     </IrreflexiveObjectProperty>
     <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#isPresenterOf"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#isProducerOf"/>
+    </IrreflexiveObjectProperty>
+    <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#isProductionCompanyOf"/>
     </IrreflexiveObjectProperty>
     <IrreflexiveObjectProperty>
         <ObjectProperty IRI="#isSeriesOf"/>
     </IrreflexiveObjectProperty>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasActor"/>
+        <Class IRI="#Actor"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBroadcast"/>
+        <Class IRI="#Broadcast"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasBroadcaster"/>
+        <Class IRI="#Broadcaster"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasChannel"/>
+        <Class IRI="#Channel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDirector"/>
+        <Class IRI="#Director"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasEmployer"/>
+        <Class IRI="#ProductionCompany"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasEpisode"/>
+        <Class IRI="#Episode"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasFormat"/>
+        <Class IRI="#Format"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasGenre"/>
+        <Class IRI="#Genre"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasPresenter"/>
+        <Class IRI="#Presenter"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProducer"/>
+        <Class IRI="#Producer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasProductionCompany"/>
+        <Class IRI="#ProductionCompany"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSeries"/>
+        <Class IRI="#Series"/>
+    </ObjectPropertyRange>
     <DataPropertyRange>
         <DataProperty IRI="#hasBroadcastTime"/>
         <Datatype abbreviatedIRI="xsd:dateTime"/>
